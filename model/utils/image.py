@@ -156,6 +156,8 @@ def convert_to_png(formula, dir_output, name, quality=100, density=200,
         buckets: list of tuples (list of sizes) to produce similar shape images
 
     """
+
+    print("the formula is " + formula)
     # write formula into a .tex file
     with open(dir_output + "{}.tex".format(name), "w") as f:
         f.write(
@@ -169,10 +171,12 @@ def convert_to_png(formula, dir_output, name, quality=100, density=200,
         dir_output, dir_output+"{}.tex".format(name)), TIMEOUT)
 
     # call magick to convert the pdf into a png file
-    run("magick convert -density {} -quality {} {} {}".format(density, quality,
+    """ run("magick convert -density {} -quality {} {} {}".format(density, quality,
         dir_output+"{}.pdf".format(name), dir_output+"{}.png".format(name)),
-        TIMEOUT)
+        TIMEOUT)"""
 
+    run("gs -sstdout=%stderr -dQUIET -dSAFER -dBATCH -dNOPAUSE -dNOPROMPT -dMaxBitmap=500000000 -dAlignToPixels=0 -dGridFitTT=2 -sDEVICE=pngalpha -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -r{} -dPrinted=false  -sOutputFile={} {} ".format(density,dir_output+"{}.png".format(name), dir_output+"{}.pdf".format(name)),
+        TIMEOUT)
     # cropping and downsampling
     img_path = dir_output + "{}.png".format(name)
 
@@ -184,7 +188,7 @@ def convert_to_png(formula, dir_output, name, quality=100, density=200,
 
         return "{}.png".format(name)
 
-    except Exception, e:
+    except Exception as e:
         print(e)
         clean(dir_output, name)
         return False
