@@ -1,8 +1,8 @@
 import time
 import os
 import numpy as np
-from scipy.misc import imread
-
+# from scipy.misc import imread
+import imageio as iio
 
 from .text import load_formulas
 from .image import build_images, greyscale
@@ -169,7 +169,7 @@ class DataGenerator(object):
         """
         img_path, formula_id = example
 
-        img = imread(self._dir_images + "/" + img_path)
+        img = iio.imread(self._dir_images + "/" + img_path)
         img = self._img_prepro(img)
         formula = self._form_prepro(self._get_raw_formula(formula_id))
 
