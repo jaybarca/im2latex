@@ -1,15 +1,16 @@
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from tensorflow.python.util import nest
-import tensorflow.contrib.layers as layers
-from tensorflow.contrib.rnn import GRUCell, LSTMCell
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.compat.v1.nn.rnn_cell import GRUCell, LSTMCell
 
-
-from components.dynamic_decode import dynamic_decode
-from components.attention_mechanism import AttentionMechanism
-from components.attention_cell import AttentionCell
-from components.greedy_decoder_cell import GreedyDecoderCell
-from components.beam_search_decoder_cell import BeamSearchDecoderCell
+from .components.dynamic_decode import dynamic_decode
+from .components.attention_mechanism import AttentionMechanism
+from .components.attention_cell import AttentionCell
+from .components.greedy_decoder_cell import GreedyDecoderCell
+from .components.beam_search_decoder_cell import BeamSearchDecoderCell
 
 
 class Decoder(object):

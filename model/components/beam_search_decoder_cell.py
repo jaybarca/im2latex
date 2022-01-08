@@ -1,11 +1,11 @@
 import tensorflow as tf
 import collections
 from tensorflow.python.util import nest
-from tensorflow.contrib.rnn import RNNCell
+from tensorflow.compat.v1.nn.rnn_cell import RNNCell
 
 
-from dynamic_decode import transpose_batch_time
-from greedy_decoder_cell import DecoderOutput
+from .dynamic_decode import transpose_batch_time
+from .greedy_decoder_cell import DecoderOutput
 
 
 class BeamSearchDecoderCellState(collections.namedtuple(

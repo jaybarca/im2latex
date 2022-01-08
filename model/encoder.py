@@ -1,6 +1,8 @@
 import numpy as np
-import tensorflow as tf
-from tensorflow.contrib.rnn import GRUCell, LSTMCell
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+from tensorflow import keras
+from tensorflow.keras.layers import GRUCell, LSTMCell
 
 
 from .components.positional import add_timing_signal_nd

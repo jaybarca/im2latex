@@ -1,7 +1,9 @@
 import sys
 import numpy as np
-import tensorflow as tf
-import tensorflow.contrib.layers as layers
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+from tensorflow import keras
+from tensorflow.keras import layers
 
 
 from .utils.general import Config, Progbar, minibatches

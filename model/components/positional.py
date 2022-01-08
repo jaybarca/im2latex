@@ -2,7 +2,8 @@ from __future__ import division
 import math
 import numpy as np
 from six.moves import xrange
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 
 # taken from https://github.com/tensorflow/tensor2tensor/blob/37465a1759e278e8f073cd04cd9b4fe377d3c740/tensor2tensor/layers/common_attention.py

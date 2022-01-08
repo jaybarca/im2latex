@@ -1,6 +1,8 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import collections
-from tensorflow.contrib.rnn import RNNCell, LSTMStateTuple
+from tensorflow import keras
+from tensorflow.compat.v1.nn.rnn_cell import RNNCell, LSTMStateTuple
 
 
 AttentionState = collections.namedtuple("AttentionState", ("cell_state", "o"))

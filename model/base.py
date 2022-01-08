@@ -1,7 +1,8 @@
 import os
 import sys
 import time
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 
 from .utils.general import init_dir, get_logger
