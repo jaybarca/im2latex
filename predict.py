@@ -10,7 +10,6 @@ from model.utils.image import greyscale, crop_image, pad_image, \
     downsample_image, TIMEOUT
 
 
-
 def interactive_shell(model):
     """Creates interactive shell to play with model
     """
@@ -37,10 +36,10 @@ input> data/images_test/0.png""")
         elif img_path[-3:] == "pdf":
             # call magick to convert the pdf into a png file
             buckets = [
-            [240, 100], [320, 80], [400, 80], [400, 100], [480, 80], [480, 100],
-            [560, 80], [560, 100], [640, 80], [640, 100], [720, 80], [720, 100],
-            [720, 120], [720, 200], [800, 100], [800, 320], [1000, 200],
-            [1000, 400], [1200, 200], [1600, 200], [1600, 1600]
+                [240, 100], [320, 80], [400, 80], [400, 100], [480, 80], [480, 100],
+                [560, 80], [560, 100], [640, 80], [640, 100], [720, 80], [720, 100],
+                [720, 120], [720, 200], [800, 100], [800, 320], [1000, 200],
+                [1000, 400], [1200, 200], [1600, 200], [1600, 1600]
             ]
 
             dir_output = "tmp/"
@@ -53,7 +52,6 @@ input> data/images_test/0.png""")
             downsample_image(img_path, img_path, 2)
 
             img = imread(img_path)
-
 
         img = greyscale(img)
         hyps = model.predict(img)
