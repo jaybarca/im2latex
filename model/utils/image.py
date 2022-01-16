@@ -19,8 +19,7 @@ def get_max_shape(arrays):
 
     """
     shapes = map(lambda x: list(x.shape), arrays)
-    aaa = list(shapes)
-    print(aaa)
+
     ndim = len(arrays[0].shape)
     max_shape = []
     for d in range(ndim):
